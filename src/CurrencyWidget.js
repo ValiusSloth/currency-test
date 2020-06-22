@@ -21,16 +21,21 @@ class CurrencyWidget extends React.Component
         fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
         .then(response => response.json())
         .then(data => this.setState({ data }))
-        .then(setInterval(() => this.fetchData(), 60000))
+        .then(this.interval = setInterval(() => this.fetchData(), 60000))
         .catch((error) => {
             console.log(error)
         })
     }
 
+    componentWillUnmount()
+    {
+        clearInterval(this.interval)
+    }
+
     render()
     {
         return (
-            <ExchangeRates data={this.state.data} />
+            <ExchangeRates data={this.state.data}/>
         )
     }
 }
