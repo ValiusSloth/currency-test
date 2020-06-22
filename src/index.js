@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
+import CurrencyWidget from './CurrencyWidget'
 
 const container = document.querySelector('#app-container')
 
-ReactDOM.render(<div>hello world</div>, notifListContainer)
+ReactDOM.render(<CurrencyWidget />, container)
