@@ -18,7 +18,7 @@ class CurrencySelect extends React.Component
     {
         super(props)
         this.state = {
-            selected: null
+            selected: 'USD',
         }
     }
 
