@@ -1,10 +1,22 @@
 import React from 'react'
 import NumberFormat from 'react-number-format'
 
-class CurrencyItem extends React.Component
-{
-    decodeHtml(symbol)
-    {
+/**
+ * Callback for currency item button click
+ * 
+ * @callback onCurrencyRemoveClick
+ * @param {string} currency 
+ */
+
+/**
+ * 
+ * @param {Object} props
+ * @param {Object} props.currencyData data related to currency item
+ * @param {Int}    props.amount selected amount
+ * @param {CurrencyItem~onCurrencyRemoveClick} props.onCurrencyRemoveClick
+ */
+const CurrencyItem = ({ currencyData, amount, onCurrencyRemoveClick }) => {
+    const decodeHtml = (symbol) => {
         let el = document.createElement('textarea')
 
         el.innerHTML = symbol
@@ -12,21 +24,18 @@ class CurrencyItem extends React.Component
         return el.value;
     }
 
-    render()
-    {
-        return(
-            <div className="component-currency-item">
-                <div>{this.props.currencyData.code}</div>
-                <NumberFormat value={this.props.amount * this.props.currencyData.rate_float} 
+    return (
+        <div className="component-currency-item">
+                <div>{currencyData.code}</div>
+                <NumberFormat value={amount * currencyData.rate_float} 
                               displayType={'text'} 
                               thousandSeparator={true} 
-                              prefix={this.decodeHtml(this.props.currencyData.symbol)}
+                              prefix={decodeHtml(currencyData.symbol)}
                               decimalScale={2}
                               renderText={value => <div>{value}</div>} />
-                <button onClick={() => this.props.onCurrencyRemoveClick(this.props.currencyData.code)}>Remove</button>
-            </div>
-        )
-    }
+                <button onClick={() => onCurrencyRemoveClick(currencyData.code)}>Remove</button>
+        </div>
+    )
 }
 
 export default CurrencyItem
