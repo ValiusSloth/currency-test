@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ExchangeRates from './components/exchange-rates'
 
-
 const CurrencyWidget = () => {
     let [state, setState] = useState({ data: null });
     let [delay, setDelay] = useState(1000)
@@ -15,7 +14,6 @@ const CurrencyWidget = () => {
     }, [delay]);
 
     const fetchData = () => {
-        console.log(state.timer)
         fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
         .then(response => response.json())
         .then(data => setState({ data }))
