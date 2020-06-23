@@ -15,7 +15,11 @@ import NumberFormat from 'react-number-format'
 const BtcInput = ({ onInputChange, amount }) => (
     <div className="component-btc-input">
         <label>BTC amount:</label>
-        <NumberFormat amount={amount ? amount : 0} onValueChange={({value}) => onInputChange(value)} />
+        <NumberFormat amount={amount ? amount : 0} 
+                      onValueChange={({value}) => onInputChange(value)}
+                      isAllowed={({value}) => {
+                        return value.length < 18
+                      }} />
     </div>
 )
 
