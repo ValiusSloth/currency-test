@@ -1,4 +1,5 @@
 import React from 'react'
+import NumberFormat from 'react-number-format'
 
 /**
  * Callback for change in input field
@@ -11,10 +12,10 @@ import React from 'react'
  * @param {Object} props
  * @param {BtcInput~onInputChange} props.onInputChange
  */
-const BtcInput = ({ onInputChange }) => (
+const BtcInput = ({ onInputChange, amount }) => (
     <div className="btc-input-component">
         <label>BTC amount:</label>
-        <input onChange={(e) => onInputChange(e.target.value)} />
+        <NumberFormat amount={amount ? amount : 0} onValueChange={({value}) => onInputChange(value)} />
     </div>
 )
 

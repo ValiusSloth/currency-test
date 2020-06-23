@@ -33,7 +33,9 @@ class ExchangeRates extends React.Component
     {
         if (this.state.activeCurrencies.length) {
             return (
-                <CurrencyList currencies={this.state.activeCurrencies} currencyData={this.props.data.bpi} />
+                <CurrencyList currencies={this.state.activeCurrencies} 
+                              currencyData={this.props.data.bpi} 
+                              amount={this.state.amount} />
             )
         }
     }
@@ -42,7 +44,7 @@ class ExchangeRates extends React.Component
     {
         return (
             <div className="exchange-rates-component">
-                <BtcInput onInputChange={value => this.setState({ amount: value })}/>
+                <BtcInput amount={this.state.amount} onInputChange={value => this.setState({ amount: value })}/>
                 <CurrencySelect currencies={this.props.data ? Object.keys(this.props.data.bpi) : null} 
                                 onCurrencySelect={value => this.addActiveCurrency(value)}/>
                 {this.renderCurrencyList()}
