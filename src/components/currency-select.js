@@ -33,7 +33,9 @@ class CurrencySelect extends React.Component
                     <option value={currency} key={currency}>{currency}</option>
                 )) : null}
                 </select>
-                <button onClick={() => this.props.onCurrencySelect(this.state.selected)}>Add</button>
+                <button onClick={() => this.state.selected.length ? this.props.onCurrencySelect(this.state.selected) : null}>
+                    Add
+                </button>
             </div> 
         )
     }
