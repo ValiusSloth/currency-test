@@ -21,7 +21,8 @@ class CurrencyItem extends React.Component
                               displayType={'text'} 
                               thousandSeparator={true} 
                               prefix={this.decodeHtml(this.props.currencyData.symbol)}
-                              decimalScale={2} />
+                              decimalScale={2}
+                              renderText={value => <div>{value}</div>} />
                 <button onClick={() => this.props.onCurrencyRemoveClick(this.props.currencyData.code)}>Remove</button>
             </div>
         )
