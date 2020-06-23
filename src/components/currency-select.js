@@ -28,8 +28,9 @@ class CurrencySelect extends React.Component
             <div className="currency-select-component">
                 <label>Add currencies to compare:</label>
                 <select onChange={(e) => this.setState({ selected: e.target.value })}>
+                <option value=''>Add currency...</option>
                 {this.props.currencies ? this.props.currencies.map(currency => (
-                    <option key={currency}>{currency}</option>
+                    <option value={currency} key={currency}>{currency}</option>
                 )) : null}
                 </select>
                 <button onClick={() => this.props.onCurrencySelect(this.state.selected)}>Add</button>

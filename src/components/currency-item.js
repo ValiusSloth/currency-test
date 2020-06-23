@@ -10,20 +10,19 @@ class CurrencyItem extends React.Component
         el.innerHTML = symbol
 
         return el.value;
-
     }
 
     render()
     {
         return(
             <div className="currency-item-component">
-                <div>{this.props.currency}</div>
+                <div>{this.props.currencyData.code}</div>
                 <NumberFormat value={this.props.amount * this.props.currencyData.rate_float} 
                               displayType={'text'} 
                               thousandSeparator={true} 
                               prefix={this.decodeHtml(this.props.currencyData.symbol)}
                               decimalScale={2} />
-                <button>Remove</button>
+                <button onClick={() => this.props.onCurrencyRemoveClick(this.props.currencyData.code)}>Remove</button>
             </div>
         )
     }
