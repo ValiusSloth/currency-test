@@ -25,7 +25,7 @@ class CurrencySelect extends React.Component
     render()
     {
         return (
-            <div className="currency-select-component">
+            <div className="component-currency-select">
                 <label>Add currencies to compare:</label>
                 <select onChange={(e) => this.setState({ selected: e.target.value })}>
                 <option value=''>Add currency...</option>

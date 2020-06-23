@@ -15,7 +15,7 @@ class CurrencyItem extends React.Component
     render()
     {
         return(
-            <div className="currency-item-component">
+            <div className="component-currency-item">
                 <div>{this.props.currencyData.code}</div>
                 <NumberFormat value={this.props.amount * this.props.currencyData.rate_float} 
                               displayType={'text'} 

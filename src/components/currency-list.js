@@ -2,7 +2,7 @@ import React from 'react'
 import CurrencyItem from './currency-item'
 
 const CurrencyList = ({ currencies, currencyData, amount, onCurrencyRemoveClick }) => (
-    <div className="currency-list-component">
+    <div className="component-currency-list">
         {currencies.map(currency => (
             <CurrencyItem onCurrencyRemoveClick={(value) => onCurrencyRemoveClick(value)}
                           key={currency} 

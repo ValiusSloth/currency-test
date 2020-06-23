@@ -13,7 +13,7 @@ import NumberFormat from 'react-number-format'
  * @param {BtcInput~onInputChange} props.onInputChange
  */
 const BtcInput = ({ onInputChange, amount }) => (
-    <div className="btc-input-component">
+    <div className="component-btc-input">
         <label>BTC amount:</label>
         <NumberFormat amount={amount ? amount : 0} onValueChange={({value}) => onInputChange(value)} />
     </div>
